@@ -14,6 +14,7 @@ namespace LidarDriver {
 			void clear_buffer();
 			double get_distance(double degrees) const;
 
+			~LidarDriver();
 		private:
 			double angular_res;
 			static const int BUFFER_DIM = 10;

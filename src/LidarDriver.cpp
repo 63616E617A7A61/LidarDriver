@@ -10,8 +10,6 @@ LidarDriver::LidarDriver::LidarDriver(double degrees) {
 
 void LidarDriver::LidarDriver::new_scan(std::vector<double>& scan) {
 	if(buff==nullptr) buff = new double[dim];
-	
-	
 } 
 
 std::vector<double> LidarDriver::LidarDriver::get_scan() {
@@ -41,4 +39,12 @@ double LidarDriver::LidarDriver::get_distance(double degrees) const {
 	int index = tail*BUFFER_DIM + int(angular_res/degrees);
 	
 	return buff[index];
+}
+
+LidarDriver::LidarDriver::~LidarDriver() {
+	clear_buffer();
+}
+
+std::ostream& operator<<(std::ostream& out, LidarDriver::LidarDriver& ld) {
+	return out << "";
 }
