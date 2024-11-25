@@ -1,6 +1,6 @@
 #include "../include/LidarDriver.h"
 
-LidarDriver::LidarDriver::LidarDriver(double degrees) {
+LidarDriver::LidarDriver(double degrees) {
 	angular_res = degrees;
 	offset = int((180 / angular_res + 1));
 	dim = offset * BUFFER_DIM;
@@ -9,7 +9,7 @@ LidarDriver::LidarDriver::LidarDriver(double degrees) {
 	buff = nullptr;
 }
 
-void LidarDriver::LidarDriver::new_scan(std::vector<double>& scan) {
+void LidarDriver::new_scan(std::vector<double>& scan) {
 	if(buff == nullptr) buff = new double[dim];
 	else{
 		//If the buffer is full, the oldest element should be deleted
@@ -22,7 +22,7 @@ void LidarDriver::LidarDriver::new_scan(std::vector<double>& scan) {
 	}
 } 
 
-std::vector<double> LidarDriver::LidarDriver::get_scan() {
+std::vector<double> LidarDriver::get_scan() {
 	if(buff == nullptr) return std::vector<double>{0};
 	
 	//save old scan
@@ -38,12 +38,12 @@ std::vector<double> LidarDriver::LidarDriver::get_scan() {
 	return r;
 }
 
-void LidarDriver::LidarDriver::clear_buffer() {
+void LidarDriver::clear_buffer() {
 	delete[] buff;
 	buff = nullptr;
 }
 
-double LidarDriver::LidarDriver::get_distance(double degrees) const {
+double LidarDriver::get_distance(double degrees) const {
 	if(buff==nullptr) return 0;
 	
 	int index = tail * offset + int(degrees/angular_res);
@@ -58,6 +58,6 @@ std::ostream& operator<<(std::ostream& out, const LidarDriver& ld) {
 	return out;
 }
 
-LidarDriver::LidarDriver::~LidarDriver() {
+LidarDriver::~LidarDriver() {
 	clear_buffer();
 }
