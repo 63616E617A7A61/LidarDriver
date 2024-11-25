@@ -1,5 +1,4 @@
 #include "../include/LidarDriver.h"
-#include <iostream>
 
 LidarDriver::LidarDriver::LidarDriver(double degrees) {
 	angular_res = degrees;

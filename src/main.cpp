@@ -38,7 +38,7 @@ int main() {
 
 	std::cout << ld << "\n";
 
-	std::cout << ld.get_distance(5) << "\n";
+	std::cout << ld.get_distance(180) << "\n";
 
 	return 0;
 }
