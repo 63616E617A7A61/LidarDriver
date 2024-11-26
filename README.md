@@ -14,6 +14,7 @@ LidarDriver/
 │   ├── FileReader.cpp       # Implementazione della classe FileReader 
 │   ├── main.cpp             # File principale per i test 
 │   └── scan_file.txt        # File contenente alcuni scan di test 
+├── CMakeList.txt            # File CMake
 └── README.md                # Documentazione del progetto
 ```
 
@@ -54,4 +55,9 @@ Questo file implementa un'interfaccia utente per testare le funzionalità di `Li
 
 **Uso principale**: testare e dimostrare le funzionalità delle classi tramite un'interfaccia a menu. 
 
-# Organizzazione del progetto
+# Suddivisione del progetto
+Il progetto è stato suddiviso nel seguente modo: 
+- **Classe LidarDriver**: suddivisi i metodi tra i 3 membri
+- **Classe FileReader**: Zillio Nicola 
+- **main**: suddiviso tra i 3 membri
+- **CMake**: Rovoletto Tommaso
