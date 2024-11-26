@@ -59,6 +59,8 @@ double LidarDriver::get_distance(double degrees) const {
 	if(buff==nullptr) return 0; // If the buffer is empty, return 0 as a default value
 	
 	int index = tail * offset + int(degrees/angular_res); // Calculate the index of the distance corresponding to the given angle
+
+	if(index > offset) return 0; // if index exceed offset, return 0
 	
 	return buff[index];
 }
