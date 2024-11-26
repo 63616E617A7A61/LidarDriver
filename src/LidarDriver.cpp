@@ -57,10 +57,12 @@ void LidarDriver::clear_buffer() {
 // Method to retrieve the distance at a specific angle (in degrees) of the last scan 
 double LidarDriver::get_distance(double degrees) const {
 	if(buff==nullptr) return 0; // If the buffer is empty, return 0 as a default value
-	
-	int index = tail * offset + int(degrees/angular_res); // Calculate the index of the distance corresponding to the given angle
 
-	if(index > offset) return 0; // if index exceed offset, return 0
+	int pos = int(degrees/angular_res); // Calculate the position of the closest suitable value in the scan
+
+	if(pos > offset) return 0; // badinput
+	
+	int index = tail * offset + pos; // Calculate the index of the distance corresponding to the given angle
 	
 	return buff[index];
 }
