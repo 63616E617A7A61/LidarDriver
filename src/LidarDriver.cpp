@@ -21,7 +21,13 @@ void LidarDriver::new_scan(std::vector<double>& scan) {
 	}
 	// Copy the new scan into the buffer
 	for (int i = tail * offset; i < (tail + 1) * offset; i++) {
-		buff[i] = scan[i - (tail * offset)];
+		int scan_index = i - (tail * offset); // Calculate the corresponding index in the scan vector
+		if(scan_index < scan.size()){ // Check if the index is valid (within bounds of the scan vector)
+			buff[i] = scan[i - (tail * offset)]; // If valid, copy the value from scan to the buffer
+		}
+		else{
+			buff[i] = 0; // If invalid (scan is shorter), set the buffer value to 0
+		}
 	}
 } 
 
