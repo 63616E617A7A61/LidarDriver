@@ -60,4 +60,4 @@ Il progetto è stato suddiviso nel seguente modo:
 - **Classe LidarDriver**: suddivisi i metodi tra i 3 membri
 - **Classe FileReader**: Zillio Nicola 
 - **main**: suddiviso tra i 3 membri
-- **CMake**: Rovoletto Tommaso
+- **CMake**: Rovoletto Tommaso, Sivori Leonardo

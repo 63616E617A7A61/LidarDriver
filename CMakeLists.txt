@@ -3,8 +3,13 @@ project(LidarDriver)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(LidarDriver
-	src/main.cpp
+include_directories(include)
+
+add_library(${PROJECT_NAME} SHARED
 	src/FileReader.cpp
-	src/LidarDriver.cpp
-	)
+	src/LidarDriver.cpp)
+	
+add_executable(main
+	src/main.cpp)
+	
+target_link_libraries(main ${PROJECT_NAME})
